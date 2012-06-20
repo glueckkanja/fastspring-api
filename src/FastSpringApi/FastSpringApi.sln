@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastSpringApiTest", "FastSpringApiTest\FastSpringApiTest.csproj", "{F19C0F39-EDC1-4E5B-9B4C-4A55024221D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastSpringApi", "FastSpringApi\FastSpringApi.csproj", "{FEA9E453-0D55-4603-AFAF-7BAB11E0CE93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F19C0F39-EDC1-4E5B-9B4C-4A55024221D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F19C0F39-EDC1-4E5B-9B4C-4A55024221D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F19C0F39-EDC1-4E5B-9B4C-4A55024221D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F19C0F39-EDC1-4E5B-9B4C-4A55024221D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEA9E453-0D55-4603-AFAF-7BAB11E0CE93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEA9E453-0D55-4603-AFAF-7BAB11E0CE93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEA9E453-0D55-4603-AFAF-7BAB11E0CE93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEA9E453-0D55-4603-AFAF-7BAB11E0CE93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
