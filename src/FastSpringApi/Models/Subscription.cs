@@ -1,7 +1,9 @@
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using System;
 using System.Net;
+using System.Text;
 using System.Xml.Serialization;
 
 namespace FastSpringApi.Models
@@ -73,7 +75,26 @@ namespace FastSpringApi.Models
         /// </summary>
         public void Reactivate()
         {
-            
+            Client.Put("subscription/" + Reference, "<subscription><no-end-date/></subscription>");
+        }
+
+        /// <summary>
+        /// Updates the data for this subscription.
+        /// </summary>
+        /// <param name="updateData">The data to be submitted</param>
+        public void Update(SubscriptionUpdate updateData)
+        {
+            if (updateData == null)
+            {
+                throw new ArgumentNullException("updateData");
+            }
+
+            var sb = new StringBuilder();
+
+            var serializer = new XmlSerializer(typeof (SubscriptionUpdate));
+            serializer.Serialize(new StringWriter(sb), updateData);
+
+            Client.Put("subscription/" + Reference, FastSpringClient.CleanUpXml(sb.ToString()));
         }
 
         /// <summary>

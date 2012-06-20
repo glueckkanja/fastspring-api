@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 namespace FastSpringApi.Models
 {
     [XmlRoot("subscription")]
-    internal class SubscriptionUpdate
+    public class SubscriptionUpdate
     {
         [XmlElement("productPath")]
         public string ProductPath { get; set; }
@@ -16,5 +16,11 @@ namespace FastSpringApi.Models
 
         [XmlElement("tags")]
         public TagCollection Tags { get; set; }
+
+        [XmlElement("coupon")]
+        public string Coupon { get; set; }
+
+        [XmlElement("proration")]
+        public bool? Proration { get; set; }
     }
 }

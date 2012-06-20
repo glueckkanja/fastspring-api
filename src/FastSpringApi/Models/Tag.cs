@@ -13,13 +13,18 @@ namespace FastSpringApi.Models
         {
         }
 
-        public static Tag Create(string s)
+        public static Tag Create(string name, int quantity)
+        {
+            return new Tag { Name = name, Quantity = quantity };
+        }
+
+        public static Tag Create(string serializedTag)
         {
             var result = new Tag();
 
-            if (s.Contains("="))
+            if (serializedTag.Contains("="))
             {
-                var data = s.Split('=');
+                var data = serializedTag.Split('=');
 
                 result.Name = data[0];
 
@@ -31,7 +36,7 @@ namespace FastSpringApi.Models
             }
             else
             {
-                result.Name = s;
+                result.Name = serializedTag;
             }
 
             return result;

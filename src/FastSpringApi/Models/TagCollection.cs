@@ -10,7 +10,17 @@ namespace FastSpringApi.Models
 {
     public class TagCollection : ICollection<Tag>, IXmlSerializable
     {
-        private HashSet<Tag> _tags = new HashSet<Tag>(); 
+        private HashSet<Tag> _tags;
+
+        public TagCollection()
+        {
+            _tags = new HashSet<Tag>();
+        }
+
+        public TagCollection(IEnumerable<Tag> tags)
+        {
+            _tags = new HashSet<Tag>(tags);
+        }
 
         #region Implementation of IEnumerable
 
@@ -30,12 +40,12 @@ namespace FastSpringApi.Models
 
         public void Add(Tag item)
         {
-            throw new InvalidOperationException();
+            _tags.Add(item);
         }
 
         public void Clear()
         {
-            throw new InvalidOperationException();
+            _tags.Clear();
         }
 
         public bool Contains(Tag item)
@@ -50,7 +60,7 @@ namespace FastSpringApi.Models
 
         public bool Remove(Tag item)
         {
-            throw new InvalidOperationException();
+            return _tags.Remove(item);
         }
 
         public int Count
@@ -83,12 +93,12 @@ namespace FastSpringApi.Models
         {
             var content = reader.ReadElementContentAsString();
 
-            _tags = new HashSet<Tag>(content.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).Select(Tag.Create));
+            _tags = new HashSet<Tag>(content.Split(new[] { ';', ',' }, StringSplitOptions.RemoveEmptyEntries).Select(t => Tag.Create(t)));
         }
 
         public void WriteXml(XmlWriter writer)
         {
-            writer.WriteValue(string.Join(";", _tags.Select(SerializeTag)));
+            writer.WriteValue(string.Join(",", _tags.Select(SerializeTag)));
         }
 
         #endregion
